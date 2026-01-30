@@ -50,6 +50,12 @@ uv run uvicorn app:app --reload --host 0.0.0.0 --port 8000
 *   `--host 0.0.0.0`: 允许从局域网访问
 *   `--port 8000`: 运行端口
 
+后台启动：
+
+```bash
+nohup uv run uvicorn app:app --host 0.0.0.0 --port 8000 > server.log 2>&1 &
+```
+
 ## 💻 使用方法
 
 1.  启动成功后，打开浏览器访问：**[http://localhost:8000](http://localhost:8000)**
