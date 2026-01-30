@@ -43,22 +43,22 @@ uv add fastapi uvicorn langchain langchain-openai python-dotenv pydantic
 在项目根目录下，使用 `uv` 运行后端服务器：
 
 ```bash
-uv run uvicorn app:app --reload --host 0.0.0.0 --port 8000
+uv run uvicorn app:app --reload --host 0.0.0.0 --port 8010
 ```
 
 *   `--reload`: 代码修改后自动重启 (开发模式)
 *   `--host 0.0.0.0`: 允许从局域网访问
-*   `--port 8000`: 运行端口
+*   `--port 8010`: 运行端口
 
 后台启动：
 
 ```bash
-nohup uv run uvicorn app:app --host 0.0.0.0 --port 8000 > server.log 2>&1 &
+nohup uv run uvicorn app:app --host 0.0.0.0 --port 8010 > server.log 2>&1 &
 ```
 
 ## 💻 使用方法
 
-1.  启动成功后，打开浏览器访问：**[http://localhost:8000](http://localhost:8000)**
+1.  启动成功后，打开浏览器访问：**[http://localhost:8010](http://localhost:8010)**
 2.  **System Message**: 在上方文本框输入 AI 的角色设定（例如："你是一个专业的 Python 程序员"）。
 3.  **Human Message**: 在下方文本框输入你的问题。
 4.  点击 **"发送消息"** 按钮或是按 `Ctrl + Enter` 发送。
@@ -73,6 +73,8 @@ nohup uv run uvicorn app:app --host 0.0.0.0 --port 8000 > server.log 2>&1 &
     *   `script.js`: 前端交互逻辑。
 *   `SQLagent.py`: 原始的命令行测试脚本 (参考用)。
 *   `.env`: 配置文件 (不应上传到代码仓库)。
+*   `prompt/`: 提示词目录。
+    *   `prompt-example.md`: 示例提示词。
 
 ## ❓ 常见问题
 

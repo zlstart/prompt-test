@@ -50,6 +50,18 @@ class ChatResponse(BaseModel):
     error: str = None
 
 
+class ConfigResponse(BaseModel):
+    model_name: str
+
+
+@app.get("/api/config", response_model=ConfigResponse)
+async def get_config():
+    """
+    获取应用配置
+    """
+    return ConfigResponse(model_name=os.getenv("MODEL_NAME", "Unknown Model"))
+
+
 # 挂载静态文件目录 (必须在定义路由之前)
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
@@ -95,4 +107,4 @@ async def read_root():
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=9000)
+    uvicorn.run(app, host="0.0.0.0", port=8010)

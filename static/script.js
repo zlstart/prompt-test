@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const humanCharCount = document.getElementById('humanCharCount');
     const sendButton = document.getElementById('sendButton');
     const responseContent = document.getElementById('responseContent');
-    const loadingOverlay = document.getElementById('loadingOverlay');
 
     // Auto-resize function
     function autoResize(element) {
@@ -131,4 +130,15 @@ document.addEventListener('DOMContentLoaded', () => {
             sendButton.click();
         }
     });
+
+    // Fetch configuration
+    fetch('/api/config')
+        .then(response => response.json())
+        .then(data => {
+            const modelNameDisplay = document.getElementById('modelNameDisplay');
+            if (modelNameDisplay && data.model_name) {
+                modelNameDisplay.textContent = data.model_name;
+            }
+        })
+        .catch(err => console.error('Failed to load config:', err));
 });
