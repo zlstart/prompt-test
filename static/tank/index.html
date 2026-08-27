@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>坦克大战</title>
+  <link rel="stylesheet" href="/static/tank/style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <section class="hero" aria-labelledby="game-title">
+      <div>
+        <p class="eyebrow">BATTLE CITY // WEB EDITION</p>
+        <h1 id="game-title">坦克大战</h1>
+        <p class="subtitle">守住阵地，击毁全部敌军坦克。</p>
+      </div>
+      <button id="restartButton" class="primary-button" type="button">重新开始</button>
+    </section>
+
+    <section class="game-layout">
+      <div class="canvas-frame">
+        <canvas id="gameCanvas" width="640" height="640" aria-label="坦克大战游戏区域"></canvas>
+        <div id="overlay" class="overlay" hidden>
+          <div class="overlay-card">
+            <p id="overlayKicker" class="overlay-kicker">MISSION STATUS</p>
+            <h2 id="overlayTitle">任务完成</h2>
+            <p id="overlayText">你已经清除了全部敌军。</p>
+            <button id="overlayRestartButton" class="primary-button" type="button">再来一局</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hud" aria-label="游戏状态">
+        <div class="hud-block">
+          <span class="hud-label">SCORE</span>
+          <strong id="scoreValue">0000</strong>
+        </div>
+        <div class="hud-grid">
+          <div class="hud-block">
+            <span class="hud-label">LIVES</span>
+            <strong id="livesValue">3</strong>
+          </div>
+          <div class="hud-block">
+            <span class="hud-label">ENEMIES</span>
+            <strong id="enemiesValue">8</strong>
+          </div>
+        </div>
+        <div class="hud-block controls">
+          <span class="hud-label">CONTROLS</span>
+          <dl>
+            <div><dt>移动</dt><dd>WASD / 方向键</dd></div>
+            <div><dt>射击</dt><dd>空格</dd></div>
+            <div><dt>重开</dt><dd>R</dd></div>
+          </dl>
+        </div>
+        <div class="legend">
+          <span><i class="brick-swatch"></i>砖墙可击毁</span>
+          <span><i class="steel-swatch"></i>钢墙不可击毁</span>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script type="module" src="/static/tank/game.js"></script>
+</body>
+</html>
