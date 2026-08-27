@@ -93,6 +93,15 @@ async def xpack_static_handler(path: str):
     return {}
 
 
+@app.get("/tank", response_class=HTMLResponse)
+async def read_tank_game():
+    """返回独立的坦克大战页面。"""
+    index_path = STATIC_DIR / "tank" / "index.html"
+    if not index_path.exists():
+        raise HTTPException(status_code=404, detail="tank game not found")
+    return index_path.read_text(encoding="utf-8")
+
+
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
     """
