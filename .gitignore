@@ -1,12 +1,8 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
+node_modules/
 dist/
-wheels/
-*.egg-info
-server.log
-
-# Virtual environments
-.venv
-.env
+coverage/
+playwright-report/
+test-results/
+generated_images/
+.worktrees/
+*.tsbuildinfo
